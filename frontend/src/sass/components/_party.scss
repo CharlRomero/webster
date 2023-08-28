@@ -1,0 +1,21 @@
+@use "../tools/mixins";
+@use "../base/variables";
+
+.Party {
+  @include mixins.flex(space-between, center);
+  gap: 0.625rem;
+  margin: 0.4375rem 0 0.4375rem 0;
+  padding: 0.625rem 1.25rem 0.625rem 1.25rem;
+  background-color: map-get(variables.$colors, "light");
+
+  &-name {
+    font-family: map-get(variables.$fonts, "title");
+    color: map-get(variables.$colors, "black-primary");
+  }
+
+  &-vote {
+    font-family: map-get(variables.$fonts, "text");
+    color: map-get(variables.$colors, "secondary");
+    font-weight: bold;
+  }
+}

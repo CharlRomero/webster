@@ -1,0 +1,5 @@
+@use "./base/reset";
+
+@forward "./pages/home.scss";
+
+@forward "./components/party";

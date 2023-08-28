@@ -1,0 +1,16 @@
+@use "../tools/mixins";
+@use "../base/variables";
+
+.Home {
+    padding: .625rem;
+    @include mixins.flex(flex-start, flex-start, column);
+    gap: 3.125rem;
+    &-combobox{
+        @include mixins.flex(flex-start, center);
+        gap: .9375rem;
+    }
+
+    &-partys {
+        width: 50%;
+    }
+}
