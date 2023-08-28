@@ -32,7 +32,6 @@ export const Home = () => {
         </select>
       </section>
       <section className="Home-partys">
-        <Party name="Partido" vote="Votaciones"/>
         {suffrages.map((suffrage, key) => (
           <Party name={suffrage.PAR_NAME} vote={suffrage.SUF_VOTE} key={key} />
         ))}

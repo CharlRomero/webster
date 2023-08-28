@@ -18,4 +18,11 @@
     color: map-get(variables.$colors, "secondary");
     font-weight: bold;
   }
+
+  &-p {
+    gap: 5px;
+    @include mixins.flex(center, center, column);
+    color: map-get(variables.$colors, "black-secondary");
+    font-family: map-get(variables.$fonts, "subtitle");
+}
 }
