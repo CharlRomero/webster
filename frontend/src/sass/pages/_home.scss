@@ -2,15 +2,29 @@
 @use "../base/variables";
 
 .Home {
-    padding: .625rem;
-    @include mixins.flex(flex-start, flex-start, column);
-    gap: 3.125rem;
-    &-combobox{
-        @include mixins.flex(flex-start, center);
-        gap: .9375rem;
+  padding: 0.625rem;
+  @include mixins.flex(flex-start, flex-start, column);
+  gap: 3.125rem;
+  &-combobox {
+    @include mixins.flex(center, flex-start, column);
+    gap: 0.9375rem;
+    &--label {
+      font-family: map-get(variables.$fonts, "title");
+      color: map-get(variables.$colors, "primary" );
     }
+    &--select {
+      font-family: map-get(variables.$fonts, "subtitle");
+      background-color: map-get(variables.$colors, "light");
+      padding: 0.625rem;
+      color: map-get(variables.$colors, "black-primary");
+      border-radius: .4375rem;
+    }
+    &--option {
+      color: map-get(variables.$colors, "black-primary");
+    }
+  }
 
-    &-partys {
-        width: 50%;
-    }
+  &-partys {
+    width: 50%;
+  }
 }

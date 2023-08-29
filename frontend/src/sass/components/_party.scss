@@ -7,14 +7,16 @@
   margin: 0.4375rem 0 0.4375rem 0;
   padding: 0.625rem 1.25rem 0.625rem 1.25rem;
   background-color: map-get(variables.$colors, "light");
+  border-radius: 0.625rem;
 
   &-name {
     font-family: map-get(variables.$fonts, "title");
     color: map-get(variables.$colors, "black-primary");
+    font-size: 1.375em;
   }
 
   &-vote {
-    font-family: map-get(variables.$fonts, "text");
+    font-family: map-get(variables.$fonts, "subtitle");
     color: map-get(variables.$colors, "secondary");
     font-weight: bold;
   }
@@ -23,6 +25,12 @@
     gap: 5px;
     @include mixins.flex(center, center, column);
     color: map-get(variables.$colors, "black-secondary");
-    font-family: map-get(variables.$fonts, "subtitle");
+    font-family: map-get(variables.$fonts, "text");
+  }
 }
+
+.Party:hover {
+  transform: scale(1.015);
+  filter: drop-shadow(0 0 5px rgb(0, 0, 0));
+  transition: all 0.2s ease-in-out;
 }

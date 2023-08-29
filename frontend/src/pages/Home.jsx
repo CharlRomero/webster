@@ -16,16 +16,16 @@ export const Home = () => {
   return (
     <section className="Home">
       <section className="Home-combobox">
-        <label htmlFor="province" className="Home-combox--label">
+        <label htmlFor="province" className="Home-combobox--label">
           Seleccione una provincia:
         </label>
         <select
           id="province"
-          className="Home-combox--select"
+          className="Home-combobox--select"
           onChange={handleProvince}
         >
           {provinces.map((province, key) => (
-            <option key={key} value={province.PRO_ID}>
+            <option key={key} value={province.PRO_ID} className="Home-combobox--option">
               {province.PRO_NAME}
             </option>
           ))}
