@@ -1,6 +1,8 @@
 @use "../tools/mixins";
 @use "../base/variables";
 
+
+/*
 .Party {
   @include mixins.flex(space-between, center);
   gap: 0.625rem;
@@ -28,9 +30,84 @@
     font-family: map-get(variables.$fonts, "text");
   }
 }
+*/
 
-.Party:hover {
-  transform: scale(1.015);
-  filter: drop-shadow(0 0 5px rgb(0, 0, 0));
-  transition: all 0.2s ease-in-out;
+.Grid-container {
+  display: grid;
+  gap: 8px; /* Espacio entre las celdas */
+  padding: 16px; /* Espaciado alrededor de la cuadrícula */
+  border: 1px solid #ccc; /* Borde para la cuadrícula */
+  background-color: #f9f9f9; /* Color de fondo de la cuadrícula */
+}
+
+/* Estilos para las filas de la cuadrícula */
+.Grid-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr; /* Ocho columnas */
+  align-items: center;
+  border-top: 1px solid #ccc; /* Borde superior de cada fila */
+  padding: 8px 0; /* Espaciado vertical de cada fila */
+}
+
+/* Estilos para las celdas de la cuadrícula */
+.Grid-cell {
+  padding: 4px 8px; /* Espaciado dentro de las celdas */
+  border-right: 1px solid #ccc; /* Borde derecho para separar las columnas */
+  position: relative; /* Para posicionar el subrayado */
+}
+
+/* Estilos para subrayar la celda con el número mayor */
+.Grid-cell-highest {
+  border-bottom: 2px solid #007bff; /* Subrayado para la celda con el número mayor */
+}
+
+/* Estilos para resaltar la celda con la división */
+.Grid-cell-division {
+  background-color: #ffff66; /* Fondo amarillo para la celda con la división */
+  font-weight: bold;
+}
+
+/* Agrega estos estilos a tu archivo CSS o componente de estilo */
+
+.Grid-cell {
+  border: 1px solid #ccc;
+  padding: 8px;
+}
+
+.max-value {
+  font-weight: bold;
+  text-decoration: underline;
+  color: blue;
+}
+
+
+/* Agrega estos estilos a tu archivo CSS o componente de estilo */
+
+.subcount {
+  font-weight: bold;
+  color: black;
+}
+
+.multiple-subcount {
+  color: red;
+}
+
+/* Estilos para los encabezados */
+.Grid-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr repeat(var(--num-columns), 1fr); /* Ajusta esto según tus necesidades */
+  gap: 5px; /* Ajusta el espacio entre celdas si es necesario */
+  align-items: center; /* Centra verticalmente el contenido */
+  font-weight: bold;
+}
+
+.Grid-cell {
+  /* Estilos generales de las celdas */
+  padding: 8px;
+  border: 1px solid #ccc;
+}
+
+/* Estilos específicos para los encabezados */
+.Grid-cell.header {
+  background-color: #f0f0f0; /* Color de fondo para los encabezados */
 }

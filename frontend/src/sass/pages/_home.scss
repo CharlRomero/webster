@@ -1,6 +1,8 @@
 @use "../tools/mixins";
 @use "../base/variables";
 
+
+
 .Home {
   padding: 0.625rem;
   @include mixins.flex(flex-start, flex-start, column);
@@ -23,8 +25,9 @@
       color: map-get(variables.$colors, "black-primary");
     }
   }
-
+/*
   &-partys {
     width: 50%;
-  }
+  }*/
+
 }
