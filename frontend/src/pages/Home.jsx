@@ -1,5 +1,4 @@
 import { useState } from "react";
-
 import { useFetch } from "../util/useFetch";
 import { Party } from "../components/Party";
 
@@ -8,11 +7,19 @@ const apiURL = import.meta.env.VITE_API;
 export const Home = () => {
   const provinces = useFetch(`${apiURL}province`);
   const [id, setId] = useState(1);
-  const suffrages = useFetch(`${apiURL}suffrage/${id}`);
+  console.log(provinces);
 
   const handleProvince = (event) => {
-    setId(event.target.value);
+    const selectedProvinceId = parseInt(event.target.value); // Convierte el valor en entero
+    setId(selectedProvinceId);
   };
+
+  // Encuentra la provincia seleccionada en el array de provinces
+  const selectedProvince = provinces.find((province) => province.PRO_ID === id);
+
+  // Accede a la propiedad PRO_CANDIDATE de la provincia seleccionada
+  const proCandidate = selectedProvince ? selectedProvince.PRO_CANDIDATE : null;
+
   return (
     <section className="Home">
       <section className="Home-combobox">
@@ -25,17 +32,23 @@ export const Home = () => {
           onChange={handleProvince}
         >
           {provinces.map((province, key) => (
-            <option key={key} value={province.PRO_ID} className="Home-combobox--option">
+            <option
+              key={key}
+              value={province.PRO_ID}
+              className="Home-combobox--option"
+            >
               {province.PRO_NAME}
             </option>
           ))}
         </select>
+        {/* Muestra el valor de PRO_CANDIDATE */}
+      {proCandidate !== null && (
+        <p>Candidatos {proCandidate}</p>
+      )}
       </section>
-      <section className="Home-partys">
-        {suffrages.map((suffrage, key) => (
-          <Party name={suffrage.PAR_NAME} vote={suffrage.SUF_VOTE} key={key} />
-        ))}
-      </section>
+      <Party provinceId={id} numColumns={proCandidate} />
+      
+      
     </section>
   );
 };
